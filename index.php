@@ -1,36 +1,8 @@
 <?php 
 
 
-$keyboard_character = '!"#$%&()*+,-./0123456789:;<=>?@ABCDEFGHIJKLMNOPQRSTUVWXYZ[]^_`abcdefghijklmnopqrstuvwxyz{|}~';
+require_once __DIR__ . '/partials/init.php';
 
-$sent_pasw = !empty($_GET);
-
-
-if($sent_pasw){
-
-
-    $pasw_length = $_GET['password_length'];
-
-    var_dump($pasw_length);
-    
-    $password = generate_password($pasw_length, $keyboard_character);
-    
-    var_dump($password);
-}
-
-
-function generate_password($pasw_length, $keyboard_character){
-    
-    $random_password = '';
-
-    while(strlen($random_password) < $pasw_length){
-
-        $random_password .= $keyboard_character[rand(0, strlen($keyboard_character))];
-
-    };
-
-    return $random_password;
-}
 
 
 
@@ -72,13 +44,9 @@ function generate_password($pasw_length, $keyboard_character){
         </form>
 
 
-        <?php if($sent_pasw): ?>
-        <div class="">
-            <h2>
-                passord = <?= $password ?>
-            </h2>
-        </div>
-        <?php endif; ?>
+
+
+
     </div>
 </body>
 
